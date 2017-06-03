@@ -1,0 +1,40 @@
+h1{
+	text-align: center;
+}
+
+button {
+	color: #fff;
+	background-color: #009688;
+	font-size: 16px;
+	padding: 0.5em 1em;
+	margin-left: 22em;
+	float: center;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+table {
+	margin-top: 5em;
+	margin-left: 4em;
+	border: 1px solid #red;
+}
+tr {
+	background-color: #F5FFFA;
+}
+input {
+	font-size: 16px;
+	padding: 0.5em 1em;
+	margin: 0.5em;
+}
+form{
+	margin-left: 15em;
+}
+.primaryButton{
+	-webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+.primaryButton:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+.secondaryButton:hover{
+	background: #CF4647;
+}

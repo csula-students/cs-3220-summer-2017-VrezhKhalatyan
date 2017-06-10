@@ -62,11 +62,20 @@ header h2{
 section{
 	clear: left;
 }
+section .index_greeting{
+	text-align: center;
+}
 div{
 	border-bottom: 2px solid black;
 }
 table{
 	border: 2px solid black;
+	border-collapse: collapse;
+}
+th, td{
+	border: 1px solid black;
+	padding: .2em .7em;
+	text-align: right;
 }
 footer p{
 	font-size: 80%;

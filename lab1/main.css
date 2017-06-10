@@ -65,7 +65,10 @@ section{
 div{
 	border-bottom: 2px solid black;
 }
+table{
+	border: 2px solid black;
+}
 footer p{
 	font-size: 80%;
-	text-align: right;
+	text-align: center;
 }

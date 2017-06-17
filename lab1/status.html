@@ -9,62 +9,51 @@
 	
 	<body>
 		<header>
-			<img src = "logo.jpg" alt = "logo" width = "100">
+			<img src= "logo.jpg" alt = "logo" width = "100">
 			<hgroup>
 				<h1>THE VREZH</h1>
 				<h2>Bringing <strong>Dynamic</strong> Gastronomy to the Table</h2>
 			</hgroup>
 			<nav id = "nav_bar">
 				<ul>
-					<li><a href = "index.html">HOME</a></li>
-					<li><a href = "status.html">STATUS</a></li>
+					<li><a href = "Index.html">HOME</a></li>
+					<li><a href = "status.html" class = "current">STATUS</a></li>
 					<li><a href = "menu.html">MENU</a></li>
-					<li><a href = "order.html" class= "current">ORDER</a></li>
+					<li><a href = "order.html">ORDER</a></li>
 				</ul>
 			</nav>
 		</header>
 		
 		<section>
 			<table style="width:100%">
-				<caption>Order</caption>
+				<caption>Order Status</caption>
 					<tr>
-						<th>Item</th>
-						<th>Price</th>
-						<th>Quantity</th>
+						<th>Created</th>
+						<th>item</th>
+						<th>Customer</th>
+						<th>status</th>
 					</tr>
 					<tr>
+						<td>June 10 3:06pm</td>
 						<td><img src= "ramen.jpg" alt = "ramen" width = "150">Ramen</td>
-						<td>$10.99</td>
-						<td>
-							<form>
-								Quantity (between 1 and 5):
-								<input type="number" name="quantity" min="1" max="5">
-							</form>
-						</td>
+						<td>Annie</td>
+						<td>In progress</td>
 					</tr>
 					<tr>
+						<td>June 10 3:08pm</td>
 						<td><img src= "khash.jpg" alt = "khash" width = "150">Khash</td>
-						<td>$10.99</td>
-						<td>
-							<form>
-								Quantity (between 1 and 5):
-								<input type="number" name="quantity" min="1" max="5">
-							</form>
-						</td>
+						<td>Escobar</td>
+						<td>In progress</td>
 					</tr>
 					<tr>
+						<td>June 10 3:10pm</td>
 						<td><img src= "menudo.jpg" alt = "menudo" width = "150">menudo</td>
-						<td>$10.99</td>
-						<td>
-							<form>
-								Quantity (between 1 and 5):
-								<input type="number" name="quantity" min="1" max="5">
-							</form>
-						</td>
+						<td>Arthur</td>
+						<td>In progress</td>
 					</tr>
 			</table>
-	
-		</section>
+			
+ 		</section>
 		<footer>
 			<p>&copy; Copyright 2017 VREZH RESTAURANT</p>
 		</footer>

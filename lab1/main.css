@@ -11,7 +11,7 @@ body{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 87.5%;
 	width: 600px;
-	background-color: white;
+	background-color: #DAFFC6;
 	margin: 15px auto;
 	padding: 15px 25px;
 	border: 1px solid black;
@@ -25,16 +25,18 @@ h2{
 	font-size: 150%;
 }
 header{
+	font-family: 'Lobster', cursive;
 	border-bottom: 2px solid black;
-	background-color: #D3F0C4;
+	background-image: -moz-linear-gradient(45deg, green 0%, green 33%, white 33%, white 66%, black 66%, black 100%);
 }
 header img{
 	float: left;
 }
 header h1{
-	color: Black;
+	color: Green;
 	text-align: center;
 	text-shadow: 2px 2px 2px black;
+	font-size: 350%;
 }
 header h2{
 	color: green;
@@ -62,10 +64,23 @@ header h2{
 section{
 	clear: left;
 }
+section h1{
+	text-align: center;
+}
 div{
 	border-bottom: 2px solid black;
 }
+table{
+	border: 2px solid black;
+	border-collapse: collapse;
+}
+th, td{
+	border: 1px solid black;
+	padding: .2em .7em;
+	text-align: right;
+}
 footer p{
 	font-size: 80%;
-	text-align: right;
+	text-align: center;
+	border-top: 2px solid black;
 }

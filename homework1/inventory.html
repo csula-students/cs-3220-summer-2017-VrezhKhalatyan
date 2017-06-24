@@ -11,49 +11,48 @@
 		<header>
 			<img src= "logo.jpg" alt = "logo" width = "100">
 			<hgroup>
-				<h1>THE VREZH</h1>
+				<h1>THE VREZH - ADMIN</h1>
 				<h2>Bringing <strong>Dynamic</strong> Gastronomy to the Table</h2>
 			</hgroup>
 			<nav id = "nav_bar">
 				<ul>
-					<li><a href = "index.html">HOME</a></li>
-					<li><a href = "status.html" class = "current">STATUS</a></li>
+					<li><a href = "index.html" >HOME</a></li>
+					<li><a href = "status.html">STATUS</a></li>
 					<li><a href = "menu.html">MENU</a></li>
 					<li><a href = "order.html">ORDER</a></li>
+					<li><a href = "inventory.html"class="current">INVENTORY</a></li>
 				</ul>
 			</nav>
 		</header>
 		
-		<section>
-			<table style="width:100%">
-				<caption>Order Status</caption>
+		<section >
+			<h2>Existing Food Items</h2>
+			<table id="myTable" style="width:100%" class="food_table">
 					<tr>
 						<th>Created</th>
 						<th>item</th>
-						<th>Customer</th>
-						<th>status</th>
+						<th>Action</th>
 					</tr>
 					<tr>
 						<td>June 10 3:06pm</td>
 						<td><img src= "ramen.jpg" alt = "ramen" width = "150">Ramen</td>
-						<td>Annie</td>
-						<td>In progress</td>
+						<td><button onclick="myDeleteFunction()" class = "ramen_button delete-button" data-name="Ramen" data-price="10.99">Delete Item</button></td>
 					</tr>
 					<tr>
 						<td>June 10 3:08pm</td>
 						<td><img src= "khash.jpg" alt = "khash" width = "150">Khash</td>
-						<td>Escobar</td>
-						<td>In progress</td>
+						<td><button onclick="myDeleteFunction()" class = "khash_button delete-button" data-name="khash" data-price="10.99">Delete Item</button></td>
 					</tr>
 					<tr>
 						<td>June 10 3:10pm</td>
 						<td><img src= "menudo.jpg" alt = "menudo" width = "150">menudo</td>
-						<td>Arthur</td>
-						<td>In progress</td>
+						<td><button onclick="myDeleteFunction()" class = "menudo_button delete-button" data-name="menudo" data-price="10.99">Delete Item</button></td>
 					</tr>
 			</table>
+			<button><a href = "createFoodItem.html">Add New Item</button>
 			
  		</section>
+		<script src="app.js"></script>
 		<footer>
 			<p>&copy; Copyright 2017 VREZH RESTAURANT</p>
 		</footer>

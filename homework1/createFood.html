@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset = "utf-8"
+		<title></title>
+		<link rel = "stylesheet" href = "main.css">
+		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+	</head>
+	
+	<body>
+		<header>
+			<img src= "logo.jpg" alt = "logo" width = "100">
+			<hgroup>
+				<h1>THE VREZH</h1>
+				<h2>Bringing <strong>Dynamic</strong> Gastronomy to the Table</h2>
+			</hgroup>
+			<nav id = "nav_bar">
+				<ul>
+					<li><a href = "index.html" class="current">HOME</a></li>
+					<li><a href = "status.html">STATUS</a></li>
+					<li><a href = "menu.html">MENU</a></li>
+					<li><a href = "order.html">ORDER</a></li>
+					<li><a href = "admin.html">ADMIN</a></li>
+				</ul>
+			</nav>
+		</header>
+		
+		<section class = "index_greeting">
+			<h1>Add Food Item</h1>
+			<form>
+				<script language="javascript" name="date" class="date">
+					var today = new Date();
+					document.write(today);
+				</script>
+				<fieldset>
+					<legend>Name</legend>
+					<label for="food_name">NAME</label>
+					<input type = "text" name = "food_name" id = "food_name" required><br>
+				</fieldset>
+				<fieldset>
+					<legend>Image Link</legend>
+					<label for="image_name">IMAGE</label>
+					<input id="image" type="image" src="khash.jpg" height="100" width="100">
+					<input id="image" type="image" src="menudo.jpg"height="100" width="100">
+					<input id="image" type="image" src="ramen.jpg"height="100" width="100">
+				</fieldset>
+				<fieldset>
+					<legend>Description</legend>
+					<label for="description_name">DESCRIPTION</label>
+					<textarea name="description_name" id="description_name" style="font-family:sans-serif;font-size:1.2em;">
+						Please add description of the food!
+					</textarea>
+				</fieldset>
+				<fieldset>
+					<legend>Ingredients</legend>
+					<input type = "text" name = "ingredients" id = "ingredients" required><br>
+				</fieldset>
+				<button class = "addFood_button" data-name="date" data-name="food_name">Add New Food Item to Inventory</button>
+			</form>
+ 		</section>
+		<footer>
+			<p>&copy; Copyright 2017 VREZH RESTAURANT</p>
+		</footer>
+		<script src="app.js"></script>
+	</body>
+</html>

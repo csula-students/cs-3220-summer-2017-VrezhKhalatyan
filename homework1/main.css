@@ -79,13 +79,10 @@ th, td{
 	padding: .2em .7em;
 	text-align: right;
 }
-#add_new_item_button{
-	float: right;
-}
 fieldset{
 	margin-top: 1em;
 	margin-bottom: 1em;
-	padding-top: 0.5em;
+	padding-top: .5em;
 }
 legend{
 	color: green;
@@ -97,18 +94,18 @@ label{
 	width: 10em;
 	text-align: right;
 }
-input, select{
+input {
 	width: 15em;
-	margin-left: 0.5em;
-	margin-bottom: 0.5em;
+	margin-left: .5em;
+	margin-bottom: .5em;
 }
-input:required, input[required]{
+input: required, input[required]{
 	border: 3px solid red;
 }
-input:valid{
+input: valid{
 	border: 1px solid black;
 }
-input:invalid{
+input: invalid{
 	box-shadow: none;
 }
 br{

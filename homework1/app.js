@@ -76,12 +76,25 @@ class Cart {
         // using innerHTML to render a list of table row item under tbody
 		
         tbody.innerHTML = this.getHTMLForCart(cartItems);
+		
+		let deleteButtons = this.root.querySelectorAll('.delete-button');
+		let listOfItems = this.store.cartItems;
+		for (var i = 0; i < deleteButtons.length; i++){
+			let deleteBtn = deleteButtons[i];
+			let someIndex = i;
+			deleteBtn.addEventListener('click', () => {
+				listOfItems.splice(someIndex,1);
+				alert("You are deleting" + deleteBtn);
+				this.store.cartItems = listOfItems;
+				this.render();
+			});
+		}
     }
 	
 	getHTMLForCart (items) {
 		var result = '';
 		for (var i = 0; i < items.length; i++){
-			result += "<tr><td>" + items[i].name + "</td><td>" + items[i].price + "</td><td>" + items[i].quantity +"</td></tr>"		
+			result += "<tr><td>" + items[i].name + "</td><td>" + items[i].price + "</td><td><button class = 'delete-button' data-id= '0'>Delete</button></td></tr>"		
 		}
 		return result;
 	}
@@ -147,31 +160,6 @@ class StatusTable {
 
     }
 }
-
-// DOMContentLoaded event will allow us to run the following function when
-// everything is ready. Think of the following code will only be executed by
-// the end of document
-document.addEventListener('DOMContentLoaded', () => {
-    // use querySelector to find the table element (preferably by id selector)
-    // let statusTable = document.querySelector('');
-    // // use querySelector to find the cart element (preferably by id selector)
-    let cart = document.querySelector('.carts-table');
-    let checkoutButtons = document.querySelectorAll('.checkout-button');
-
-    let store = new Store(window.localStorage);
-    // if (table) {
-    //     new StatusTable(table, store);
-    // }
-    if (cart) {
-        new Cart(cart, store);
-    }
-    if (checkoutButtons && checkoutButtons.length) {
-        for (var i = 0; i < checkoutButtons.length; i ++) {
-            new CheckoutButton(checkoutButtons[i], store);
-        }
-    }
-});
-
 function Total(qty,ud,total,value){
  qty=document.getElementById(qty);
  ud>0?qty.value++:qty.value--;
@@ -192,32 +180,14 @@ class Inventory {
 
     destroy () {
         // TODO: remove event listeners added from the init above
-		this.root.removeEventListener('click', this.onClick);
     }
 
     removeItem (itemName) {
         // TODO: function to remove item given item name from store
-		let items = this.store.items || [];
-        // TODO: replace with actual item
-        console.log(this.root.dataset);
-        items.remove({
-            name: this.root.dataset.name,
-			price: this.root.dataset.price
-        });
-        console.log(items);
-        this.store.items = items;
     }
 
     render () {
         // using innerHTML to render inventory listing
-		var inventory = this.store.inventory;
-		for (var i = 0; i < inventory.length; i++){
-			console.log(inventory[i]);
-		}
-        let table = this.root.querySelector('table');
-        // using innerHTML to render a list of table row item under tbody
-		
-        table.innerHTML = this.getHTMLForCart(inventory);
     }
 }
 
@@ -225,6 +195,7 @@ class Menu {
     constructor(root, store) {
         this.root = root;
         this.store = store;
+		this.food = this.store.foodItems;
         this.init();
     }
 
@@ -234,55 +205,97 @@ class Menu {
 
     render () {
         // TODO: render a list of food menu from store using innerHTML
-		var cartItems = this.store.cartItems;
-		for (var i = 0; i < cartItems.length; i++){
-			console.log(cartItems[i]);
+		var foodItems = this.store.foodItems;
+		for (var i = 0; i < foodItems.length; i++){
+			console.log(foodItems[i]);
 		}
         let tbody = this.root.querySelector('tbody');
         // using innerHTML to render a list of table row item under tbody
 		
-        tbody.innerHTML = this.getHTMLForCart(cartItems);
+        tbody.innerHTML = this.getHTMLForCart(foodItems);
 		
+		let deleteButtons = this.root.querySelectorAll('.delete-button');
+		let listOfItems = this.store.foodItems;
+		for (var i = 0; i < deleteButtons.length; i++){
+			let deleteBtn = deleteButtons[i];
+			let someIndex = i;
+			deleteBtn.addEventListener('click', () => {
+				listOfItems.splice(someIndex,1);
+				alert("You are deleting" + deleteBtn);
+				this.store.foodItems = listOfItems;
+				this.render();
+			});
+		}
     }
+	getHTMLForCart (food) {
+		var result = '';
+		for (var i = 0; i < food.length; i++){
+			result += "<tr><td>" + food[i].name + "</td><td>" + food[i].name + "</td><td><button class = 'delete-button' data-id= '0'>Delete</button></td></tr>"		
+		}
+		return result;
+	}
 }
 
 class CreateFood {
     constructor(root, store) {
         this.root = root; // root should be the container of the form itself
         this.store = store;
+		this.onClick = () => this.createFood();
         this.init();
     }
 
     init () {
         // attach click event to create button
-		this.root.addEventListener('click', this.onClick);
+		 this.root.addEventListener('click', this.onClick);
+    }
+	
+	destroy () {
+		this.root.removeEventListener('click', this.onClick);
     }
 
     createFood () {
         // will need to do querySelector to find out every single form element
         // to get their values before creating a new food
         // after creating a new food item, add it to store
-		let cart = document.querySelector('.food_table');
-		let deleteButtons = document.querySelectorAll('.delete-button');
-		let store = new Store(window.localStorage);
-		if (cart) {
+		let foodItems = this.store.foodItems || [];
+        // TODO: replace with actual item
+        console.log(this.root.dataset);
+        foodItems.push({
+            name: this.root.dataset.name,
+			name: this.root.dataset.name
+        });
+        console.log(foodItems);
+        this.store.foodItems = foodItems;
+    }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    // use querySelector to find the table element (preferably by id selector)
+    // let statusTable = document.querySelector('');
+    // // use querySelector to find the cart element (preferably by id selector)
+    let cart = document.querySelector('.carts-table');
+    let checkoutButtons = document.querySelectorAll('.checkout-button');
+	let inventory = document.querySelector('.inventory-table');
+	let addButtons = document.querySelectorAll('.addFood_button');
+
+    let store = new Store(window.localStorage);
+    // if (table) {
+    //     new StatusTable(table, store);
+    // }
+    if (cart) {
         new Cart(cart, store);
     }
-    if (deleteButtons && deleteButtons.length) {
-        for (var i = 0; i < deleteButtons.length; i ++) {
-            new DeleteButton(deleteButtons[i], store);
+    if (checkoutButtons && checkoutButtons.length) {
+        for (var i = 0; i < checkoutButtons.length; i ++) {
+            new CheckoutButton(checkoutButtons[i], store);
         }
     }
-    }
-}
-function myCreateFunction() {
-    var table = document.getElementById("myTable");
-    var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    cell1.innerHTML = "NEW CELL1";
-    cell2.innerHTML = "NEW CELL2";
-}
-function myDeleteFunction() {
-    document.getElementById("myTable").deleteRow(0);
-}
+	if(inventory){
+		new Menu(inventory, store);
+	}
+	if(addButtons && addButtons.length){
+		for (var i = 0; i< addButtons.length; i++){
+			new CreateFood (addButtons[i], store);
+		}
+	}
+
+});

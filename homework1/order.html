@@ -2,7 +2,6 @@
 	<head>
 		<meta charset = "utf-8"
 		<title></title>
-		<link rel = "shortcut icon" href = "image.favicon.ico">
 		<link rel = "stylesheet" href = "main.css">
 		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	</head>
@@ -20,7 +19,7 @@
 					<li><a href = "status.html">STATUS</a></li>
 					<li><a href = "menu.html">MENU</a></li>
 					<li><a href = "order.html" class= "current">ORDER</a></li>
-					<li><a href = "inventory.html">INVENTORY</a></li>
+					<li><a href = "admin.html">ADMIN</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -40,7 +39,7 @@
 						<td><img src= "ramen.jpg" alt = "ramen" width = "150">Ramen</td>
 						<td>$10.99</td>
 						<td>
-							<form id="purchase">
+							<form id="purchase" >
 								<br> Item Price: $10.99
 								<br> Please Select Quantity
 									<input type='button' name='subtract' onclick='Total("qty",-1,"total",10.99);' value='-'/>

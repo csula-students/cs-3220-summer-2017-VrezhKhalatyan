@@ -195,7 +195,7 @@ class Menu {
     constructor(root, store) {
         this.root = root;
         this.store = store;
-		this.food = this.store.foodItems;
+		this.food = this.store.foods;
         this.init();
     }
 
@@ -205,24 +205,24 @@ class Menu {
 
     render () {
         // TODO: render a list of food menu from store using innerHTML
-		var foodItems = this.store.foodItems;
-		for (var i = 0; i < foodItems.length; i++){
-			console.log(foodItems[i]);
+		var foods = this.store.foods;
+		for (var i = 0; i < foods.length; i++){
+			console.log(foods[i]);
 		}
         let tbody = this.root.querySelector('tbody');
         // using innerHTML to render a list of table row item under tbody
 		
-        tbody.innerHTML = this.getHTMLForCart(foodItems);
+        tbody.innerHTML = this.getHTMLForCart(foods);
 		
 		let deleteButtons = this.root.querySelectorAll('.delete-button');
-		let listOfItems = this.store.foodItems;
+		let listOfItems = this.store.foods;
 		for (var i = 0; i < deleteButtons.length; i++){
 			let deleteBtn = deleteButtons[i];
 			let someIndex = i;
 			deleteBtn.addEventListener('click', () => {
 				listOfItems.splice(someIndex,1);
 				alert("You are deleting" + deleteBtn);
-				this.store.foodItems = listOfItems;
+				this.store.foods = listOfItems;
 				this.render();
 			});
 		}
@@ -257,15 +257,15 @@ class CreateFood {
         // will need to do querySelector to find out every single form element
         // to get their values before creating a new food
         // after creating a new food item, add it to store
-		let foodItems = this.store.foodItems || [];
+		let foodItems = this.store.foods || [];
         // TODO: replace with actual item
         console.log(this.root.dataset);
         foodItems.push({
             name: this.root.dataset.name,
 			name: this.root.dataset.name
         });
-        console.log(foodItems);
-        this.store.foodItems = foodItems;
+        console.log(foods);
+        this.store.foods = foods;
     }
 }
 document.addEventListener('DOMContentLoaded', () => {

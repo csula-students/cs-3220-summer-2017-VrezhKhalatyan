@@ -257,10 +257,10 @@ class CreateFood {
         // will need to do querySelector to find out every single form element
         // to get their values before creating a new food
         // after creating a new food item, add it to store
-		let foodItems = this.store.foods || [];
+		let foods = this.store.foods || [];
         // TODO: replace with actual item
         console.log(this.root.dataset);
-        foodItems.push({
+        foods.push({
             name: this.root.dataset.name,
 			name: this.root.dataset.name
         });

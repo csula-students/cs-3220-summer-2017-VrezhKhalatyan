@@ -230,7 +230,7 @@ class Menu {
 	getHTMLForCart (food) {
 		var result = '';
 		for (var i = 0; i < food.length; i++){
-			result += "<tr><td>" + food[i].name + "</td><td>" + food[i].name + "</td><td><button class = 'delete-button' data-id= '0'>Delete</button></td></tr>"		
+			result += "<tr><td>" + food[i].name + "</td><td>" + food[i].price + "</td><td><button class = 'delete-button' data-id= '0'>Delete</button></td></tr>"		
 		}
 		return result;
 	}
@@ -257,12 +257,12 @@ class CreateFood {
         // will need to do querySelector to find out every single form element
         // to get their values before creating a new food
         // after creating a new food item, add it to store
-		let foodItems = this.store.foods || [];
+		let foods = this.store.foods || [];
         // TODO: replace with actual item
         console.log(this.root.dataset);
-        foodItems.push({
+        foods.push({
             name: this.root.dataset.name,
-			name: this.root.dataset.name
+			price: this.root.dataset.price
         });
         console.log(foods);
         this.store.foods = foods;

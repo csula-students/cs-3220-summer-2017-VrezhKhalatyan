@@ -230,7 +230,7 @@ class Menu {
 	getHTMLForCart (food) {
 		var result = '';
 		for (var i = 0; i < food.length; i++){
-			result += "<tr><td>" + food[i].name + "</td><td>" + food[i].name + "</td><td><button class = 'delete-button' data-id= '0'>Delete</button></td></tr>"		
+			result += "<tr><td>" + food[i].name + "</td><td>" + food[i].price + "</td><td><button class = 'delete-button' data-id= '0'>Delete</button></td></tr>"		
 		}
 		return result;
 	}
@@ -262,7 +262,7 @@ class CreateFood {
         console.log(this.root.dataset);
         foods.push({
             name: this.root.dataset.name,
-			name: this.root.dataset.name
+			price: this.root.dataset.price
         });
         console.log(foods);
         this.store.foods = foods;

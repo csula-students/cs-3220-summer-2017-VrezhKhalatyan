@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset = "utf-8"
+		<title>Tip Calculator</title>
+		<link rel = "stylesheet" href = "tipMain.css">
+		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+	</head>
+	
+	<body>
+		<header>
+			<hgroup>
+				<h1>Tip Calculator</h1>
+			</hgroup>
+			
+		</header>
+		
+		<section class = "index_greeting">
+			<div class="wrapper">
+				<span>Total bill amount :</span>
+					$ <input type="text" id="bill" class="amount-field"> <br>
+				<span>Tip Percentage:</span>
+					<input type="range" min="0" max="100" value="0" step="1" onchange="tipCalculate(this.value, 'bill')" class="range-style">
+				<span id="slideval">0%</span>
+				<h3>Tip to leave = 
+				<span id="tipamount" class="tip-amount">$0.00</span>
+				</h3> 
+				<button class ="calculateTip_button">Calculate Tip</button>
+			</div>
+ 		</section>
+		<footer>
+			<p>&copy; Copyright 2017 VREZH RESTAURANT</p>
+		</footer>
+		<script src="tip.js"></script>
+	</body>
+</html>

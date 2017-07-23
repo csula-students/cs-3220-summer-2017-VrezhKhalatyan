@@ -1,0 +1,98 @@
+CREATE TABLE Food (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    foodName VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    price DOUBLE NOT NULL
+);
+
+CREATE TABLE Orders (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(255) NOT NULL,
+    created datetime NOT NULL
+);
+
+CREATE TABLE Order_Foods (
+	id INTEGER REFERENCES Orders(id),
+    foodId INTEGER REFERENCES Food_Items(id),
+    quantity INTEGER NOT NULL
+);
+
+CREATE TABLE Shopping_Cart (
+    id INTEGER  REFERENCES Order_Foods(orderID),
+    customer_name VARCHAR(255) REFERENCES Orders(customer_name),
+    foodId INTEGER REFERENCES Order_Foods(foodId),
+    quantity INTEGER REFERENCES Order_Foods(quantity)
+);
+
+INSERT INTO Food (id, foodName, description, price)VALUES 
+(1, 'Hamburger', 'A tasty hamburger', 9.99),(2, 'Fries', 'Crispy Fries', 4.99),
+(3, 'Coke', 'Refreshing Coca-Cola', 2.99);
+
+INSERT INTO Orders (id, customer_name, created)VALUES
+(1, 'Eric', '2017-07-20 15:31:55'),(2, 'John', '2017-07-22 15:32:55'),
+(3, 'Jane', '2017-07-22 15:32:55'),(4, 'Alice', '2017-07-22 15:33:55');
+
+INSERT INTO Order_Foods(id, foodId, quantity)VALUES
+(1, 1, 1),
+(1, 2, 2),
+(2, 2, 2),
+(2, 3, 1),
+(3, 3, 1),
+(4, 2, 1),
+(4, 3, 2);
+
+INSERT INTO Shopping_Cart(id, customer_name, foodId, quantity)VALUES
+(1, 'Anonymous', 1, 2),
+(1, 'Anonymous', 2, 1),
+(1, 'Anonymous', 2, 1),
+(2, 'Mike', 1, 1),
+(2, 'Mike', 2, 1),
+(3, 'Bob', 3, 1);
+
+UPDATE Food
+SET foodName = 'Salad'
+WHERE id = 1;
+
+UPDATE Orders
+SET customer_name = 'Doe'
+WHERE id = 3;
+
+/*SELECT A.id, B.id, C.cnt
+FROM Order_Foods A 
+INNER JOIN (SELECT id, COUNT(id) AS cnt
+FROM Order_Foods
+GROUP BY id) C ON A.id = C.id;*/
+
+/*SELECT A.id, B.id, C.cnt
+FROM Shopping_Cart A 
+INNER JOIN (SELECT id, COUNT(id) AS cnt
+FROM Food
+GROUP BY id) C ON A.id = C.id;*/
+
+SELECT foodName
+FROM Food;
+
+SELECT *
+FROM Orders;
+
+SELECT * 
+FROM Orders
+WHERE created LIKE '2017-07-22%';
+
+DROP TABLE Food;
+
+DROP TABLE Orders;
+
+DROP TABLE Shopping_Cart;
+
+
+
+
+
+
+
+
+
+
+
+

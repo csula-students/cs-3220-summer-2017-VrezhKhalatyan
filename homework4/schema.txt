@@ -1,0 +1,128 @@
+CREATE TABLE foodItems (
+
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+
+    foodName VARCHAR(255) NOT NULL,
+
+    description VARCHAR(255),
+
+    price DOUBLE NOT NULL
+
+);
+
+
+
+
+INSERT INTO foodItems (id, foodName, description, price) VALUES
+
+	(1, "Hamburger", "A hamburger", 9.99),
+ 	(2, "Fries", "Some fries", 4.99),
+ 
+       (3, "Coke", "Coca Cola", 2.99);
+
+
+
+
+
+CREATE TABLE Users (
+
+    firstName VARCHAR(255) NOT NULL,
+
+    lastName VARCHAR(255) NOT NULL
+
+);
+
+
+
+
+INSERT INTO Users(firstName, lastName) VALUES
+
+	("John", "Doe"),
+ 
+       ("Margret", "Taylor"),
+ 
+       ("Bill", "Doe" );
+
+
+
+
+
+CREATE TABLE Orders(
+
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+
+    customerName VARCHAR(255) NOT NULL,
+
+    created DATE NOT NULL
+
+);
+
+
+
+
+
+DROP TABLE Orders;
+
+
+
+
+CREATE TABLE Orders(
+
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+
+    customerName VARCHAR(255) NOT NULL,
+
+    created DATE NOT NULL
+
+);
+
+
+
+
+INSERT INTO Orders(id, customerName, created) VALUES
+
+     (1, "Eric", '2017-07-15'),
+ 
+    (2, "John", '2017-07-19'),
+ 
+    (3, "Jane", '2017-07-05'),
+
+     (4, "Alice", '2017-07-23');
+    
+
+
+
+SELECT *
+FROM Orders;
+
+
+
+
+DROP TABLE Users;
+
+
+
+
+CREATE TABLE Users (
+
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+
+    firstName VARCHAR(255) NOT NULL,
+
+    lastName VARCHAR(255) NOT NULL
+
+);
+
+
+
+
+INSERT INTO Users(id, firstName, lastName) VALUES
+
+	(1, "John", "Doe"),
+ 
+       (2, "Margret", "Taylor"),
+ 
+	(3, "Vrezh", "K"),
+ 
+       (4, "Bill", "Doe" );
+    
